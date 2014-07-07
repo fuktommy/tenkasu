@@ -1,0 +1,22 @@
+<?php // -*- coding: utf-8 -*-
+
+// local variables
+$appRoot = __DIR__ . '/..';
+
+// global settings
+setlocale(LC_ALL, 'en_US.UTF-8');
+date_default_timezone_set('Asia/Tokyo');
+ini_set('user_agent', 'https://github.com/fuktommy/tenkasu');
+
+// configration
+return [
+    // PubSubHubbub. set empty to skip publish.
+    //'push_publisher' => 'https://pubsubhubbub.appspot.com/publish',
+    'push_publisher' => '',
+
+    //'db_path' => "{$appRoot}/data/todo.sqlite3",
+    'db_path' => ":memory:",
+    'log_dir' => "{$appRoot}/log",
+
+    'template_dir' => "{$appRoot}/templates",
+];

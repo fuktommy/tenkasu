@@ -1,0 +1,15 @@
+#!/bin/sh -e
+
+cd `dirname $0`
+root_path=/srv/www/tenkasu.fuktommy.com
+
+mkdir -v -m 0777 -p $root_path/data
+mkdir -v -m 0777 -p $root_path/log
+mkdir -v -m 0777 -p $root_path/tmp
+
+rsync -acv --delete ./htdocs/ $root_path/htdocs/
+rsync -acv --delete ./lib/ $root_path/lib/
+rsync -acv --delete ./templates/ $root_path/templates/
+rsync -acvL --exclude="*.template" conf/ $root_path/conf/
+
+rsync -acv --delete ../lib/Tenkasu/ $root_path/lib/Tenkasu/
